@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task1</title>
+
+    <style>
+        body{
+            padding: 200px 400px;
+            margin: 0;
+        }
+
+        .one1{
+            width: 98px;//元素外出固定一个宽度DIV
+        }
+
+        /*文字样式*/
+        .text{
+            margin-bottom: 10px;
+            font-size: x-large;
+            font-family: "宋体", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+            font-weight: 900;
+
+            -webkit-transition: all 1s ease 0.5s;
+            -moz-transition: all 1s ease 0.5s;
+            /*-ms-transition: all 1s ease 0.5s;*/
+            -o-transition: all 1s ease 0.5s;
+            transition: all 1s ease 0.5s;
+        }
+
+        /*文字下面的横线样式*/
+        .oBor{
+            width: 0;
+            margin: 0 auto;
+            border-bottom: 6px solid dodgerblue;
+
+            -webkit-transition: all 1s ease 0.5s;
+            -moz-transition: all 1s ease 0.5s;
+            /*-ms-transition: all 1s ease 0.5s;*/
+            -o-transition: all 1s ease 0.5s;
+            transition: all 1s ease 0.5s;
+        }
+
+        /*按钮样式*/
+        .oBut{
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="one1">
+    <p class="text">前端学院</p>
+    <div class="oBor"></div>
+</div>
+
+<button class="oBut">点击一下</button>
+
+
+<script>
+    let text = document.getElementsByClassName('text')[0];//获取的class是数组，必须加[]
+    let oBor = document.getElementsByClassName('oBor')[0];
+    let oBut = document.getElementsByClassName('oBut')[0];
+
+    class chang {
+        constructor() {
+
+        }
+
+        textClick() {
+            oBut.addEventListener('click',function () {
+                /*改变样式*/
+               oBor.style.width = 125 + 'px';
+               text.style.color = 'dodgerblue';
+
+               /*1s后样式复原*/
+                setTimeout(function () {
+                    oBor.style.width = '';
+                    text.style.color = '';
+                }, 1000)
+            }, false)
+        }
+    }
+
+    let task1 = new chang();//实例对象
+    task1.textClick();
+</script>
+</body>
+
+
+</html>
